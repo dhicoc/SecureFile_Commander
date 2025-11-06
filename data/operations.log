@@ -1,0 +1,15 @@
+2025-11-06T07:04:34.746595400Z [LOGIN] admin
+2025-11-06T07:06:10.083827Z [ERROR] "D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt" (文件名、目录名或卷标语法不正确。)
+2025-11-06T07:10:34.997104600Z [TASK_START] 1:Backup D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文backup.txt
+2025-11-06T07:10:35.000572400Z [BACKUP_TASK] Backup D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文backup.txt owner=admin hash=fc827bea172e5f4b649713ad0ca6bf5ad19eb69bf1daf7c956394f622aa74d68
+2025-11-06T07:10:35.001569300Z [TASK_COMPLETE] 1:Backup D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文backup.txt
+2025-11-06T07:11:00.657983600Z [BACKUP_SYNC] D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt->D:\HuaweiMoveData\Users\DELL\Desktop\论文backup.txt
+2025-11-06T07:16:17.432549400Z [LOGIN] admin
+2025-11-06T07:17:12.029129Z [TASK_START] 1:Encrypt D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文(已加密).txt
+2025-11-06T07:17:12.054306500Z [ENCRYPT_TASK] Encrypt D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文(已加密).txt owner=admin hash=0d754f31d36d6869e3f8399769687ef0d6009371db58e06e0072ec62bafecbe9
+2025-11-06T07:17:12.055343Z [TASK_COMPLETE] 1:Encrypt D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文(已加密).txt
+2025-11-06T07:17:19.169318400Z [ENCRYPT_SYNC] D:\HuaweiMoveData\Users\DELL\Desktop\论文.txt->D:\HuaweiMoveData\Users\DELL\Desktop\论文(已加密).txt
+2025-11-06T07:19:05.449141500Z [TASK_START] 2:Decrypt D:\HuaweiMoveData\Users\DELL\Desktop\论文(已加密).txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文(已解密).txt
+2025-11-06T07:19:05.454304200Z [DECRYPT_TASK] Decrypt D:\HuaweiMoveData\Users\DELL\Desktop\论文(已加密).txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文(已解密).txt owner=admin hash=fc827bea172e5f4b649713ad0ca6bf5ad19eb69bf1daf7c956394f622aa74d68
+2025-11-06T07:19:05.454304200Z [TASK_COMPLETE] 2:Decrypt D:\HuaweiMoveData\Users\DELL\Desktop\论文(已加密).txt -> D:\HuaweiMoveData\Users\DELL\Desktop\论文(已解密).txt
+2025-11-06T07:19:11.441936100Z [DECRYPT_SYNC] D:\HuaweiMoveData\Users\DELL\Desktop\论文(已加密).txt->D:\HuaweiMoveData\Users\DELL\Desktop\论文(已解密).txt

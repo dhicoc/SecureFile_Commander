@@ -39,6 +39,7 @@ public class Console {
                     case "cancel": handleCancel(parts); break;
                     case "backup": handleBackup(parts); break;
                     case "encrypt": handleEncrypt(parts); break;
+                    case "decrypt": handleDecrypt(parts); break;
                     case "restore": handleRestore(parts); break;
                     case "hash": handleHash(parts); break;
                     case "config": handleConfig(parts); break;
@@ -62,10 +63,12 @@ public class Console {
         System.out.println("  whoami              - Show current user");
         System.out.println("  submit backup <src> <dest>   - Submit backup task");
         System.out.println("  submit encrypt <src> <dest>  - Submit encrypt task");
+        System.out.println("  submit decrypt <src> <dest>  - Submit decrypt task");
         System.out.println("  tasks               - List tasks");
         System.out.println("  cancel <taskId>     - Cancel task");
         System.out.println("  backup <src> <dest> - Run backup synchronously");
         System.out.println("  encrypt <src> <dest> - Run encrypt synchronously");
+        System.out.println("  decrypt <src> <dest> - Run decrypt synchronously");
         System.out.println("  restore <backupPath> <dest> - Restore from backup");
         System.out.println("  hash <file>         - Compute SHA-256 hash");
         System.out.println("  config set <k> <v>  - Set config");
@@ -122,7 +125,7 @@ public class Console {
 
     private void handleSubmit(String[] parts) {
         if (parts.length < 2) {
-            System.out.println("Usage: submit <backup|encrypt> ...");
+            System.out.println("Usage: submit <backup|encrypt|decrypt> ...");
             return;
         }
         String type = parts[1];
@@ -138,6 +141,12 @@ public class Console {
             EncryptTask task = new EncryptTask(src, dest, currentUser==null ? "anonymous" : currentUser.getUsername());
             int id = taskManager.submitTask(task);
             System.out.println("Submitted encrypt task id=" + id);
+        } else if ("decrypt".equals(type)) {
+            if (parts.length < 4) { System.out.println("Usage: submit decrypt <src> <dest>"); return; }
+            String src = parts[2], dest = parts[3];
+            DecryptTask task = new DecryptTask(src, dest, currentUser==null ? "anonymous" : currentUser.getUsername());
+            int id = taskManager.submitTask(task);
+            System.out.println("Submitted decrypt task id=" + id);
         } else {
             System.out.println("Unknown submit type.");
         }
@@ -172,6 +181,14 @@ public class Console {
         FileService.encryptFile(src, dest, configManager.getAesKey());
         LogService.log("ENCRYPT_SYNC", src + "->" + dest);
         System.out.println("Encrypt completed.");
+    }
+
+    private void handleDecrypt(String[] parts) throws Exception {
+        if (parts.length < 3) { System.out.println("Usage: decrypt <src> <dest>"); return; }
+        String src = parts[1], dest = parts[2];
+        FileService.decryptFile(src, dest, configManager.getAesKey());
+        LogService.log("DECRYPT_SYNC", src + "->" + dest);
+        System.out.println("Decrypt completed.");
     }
 
     private void handleRestore(String[] parts) throws Exception {
